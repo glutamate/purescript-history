@@ -14,6 +14,12 @@ class IsRoute r where
   toHash :: r -> String
   errorRoute :: r
 
+instance routeString :: IsRoute String where
+  fromHash s = Just s
+  toHash = id
+  errorRoute = "/"
+
+
 route :: forall e r. (IsRoute r) => (r -> Eff (router :: Router r | e) Unit)
                                     -> Eff (router :: Router r, history:: History | e) Unit
 route dispatcher = onUrlChange $ \hash -> do
@@ -30,4 +36,4 @@ foreign import runHistory
   \      f(); \
   \    } \
   \ } \
-  \ " :: forall e.  Eff (history :: History | e) Unit -> Eff e Unit
+  \ " :: forall e r. (IsRoute r) => Eff (history :: History | e) Unit -> Eff (router :: Router r | e) Unit

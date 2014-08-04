@@ -28,11 +28,6 @@ main = do
   pushUrl "foo"
   route dispatch
 
-instance routeString :: IsRoute String where
-  fromHash s = Just s
-  toHash = id
-  errorRoute = "/"
-
 dispatch s = goto "from_dispatcher"
 
 callback newurl = do

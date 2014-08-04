@@ -29,5 +29,21 @@
 
 ### Type Classes
 
+    class IsRoute r where
+      fromHash :: String -> Maybe r
+      toHash :: r -> String
+      errorRoute :: r
+
+
+### Type Class Instances
+
+    instance routeString :: IsRoute String
+
 
 ### Values
+
+    goto :: forall e r. (IsRoute r) => r -> Eff (router :: Router r | e) Unit
+
+    route :: forall e r. (IsRoute r) => (r -> Eff (router :: Router r | e) Unit) -> Eff (history :: History, router :: Router r | e) Unit
+
+    runHistory :: forall e r. (IsRoute r) => Eff (history :: History | e) Unit -> Eff (router :: Router r | e) Unit
