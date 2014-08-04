@@ -54,7 +54,7 @@ foreign import onUrlChange
   \      }); \
   \    } \
   \ } \
-  \ " :: forall e. (String -> Eff (history :: History | e) Unit)
+  \ " :: forall e. (String -> Eff e Unit)
                   -> Eff (history :: History | e) Unit
 
 --doesn't work, need loading before loading history script.
