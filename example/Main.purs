@@ -4,7 +4,9 @@ import Control.Monad.Eff
 import Control.Monad.Eff.Random
 import Debug.Trace
 import History
+import History.Router
 import Data.Tuple
+import Data.Maybe
 
 foreign import data Alert :: !
 
@@ -24,6 +26,14 @@ main = do
 
   trace $ "hello purescript: " ++ show rand
   pushUrl "foo"
+  route dispatch
+
+instance routeString :: IsRoute String where
+  fromHash s = Just s
+  toHash = id
+  errorRoute = "/"
+
+dispatch s = goto "from_dispatcher"
 
 callback newurl = do
   trace $ "callback new url" ++ newurl

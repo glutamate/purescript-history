@@ -1,6 +1,5 @@
 module History.Router
- ( Router()
- ) where
+ where
 
 import Control.Monad.Eff
 import Data.Enum
