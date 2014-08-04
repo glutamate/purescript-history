@@ -1,5 +1,6 @@
 module History
  ( History()
+ , pushState
  ) where
 
 import Control.Monad.Eff

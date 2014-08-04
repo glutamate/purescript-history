@@ -8,3 +8,5 @@
 
 
 ### Values
+
+    pushState :: forall e. String -> String -> Eff (history :: History | e) Unit
