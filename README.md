@@ -4,9 +4,9 @@
 
 ### Types
 
-    data History :: !
+    data UrlHistory :: !
 
 
 ### Values
 
-    pushState :: forall e. String -> String -> Eff (history :: History | e) Unit
+    pushState :: forall e. String -> String -> Eff (urlHistory :: UrlHistory | e) Unit

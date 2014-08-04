@@ -1,5 +1,5 @@
 module History
- ( History()
+ ( UrlHistory()
  , pushState
  ) where
 
@@ -8,7 +8,7 @@ import Data.Enum
 import Data.Maybe
 import Data.Tuple
 
-foreign import data History :: !
+foreign import data UrlHistory :: !
 
 foreign import pushState
   " function pushState(title) { \
@@ -19,9 +19,9 @@ foreign import pushState
   \     } \
   \   } \
   \ } \
-  \" :: forall e. String -> String -> Eff (history :: History | e) Unit
+  \" :: forall e. String -> String -> Eff (urlHistory :: UrlHistory | e) Unit
 
-foreign import getState "" :: forall e. Eff (history :: History | e) (Tuple String String)
+foreign import getState "" :: forall e. Eff (urlHistory :: UrlHistory | e) (Tuple String String)
 
-foreign import onState "" :: forall e. (Tuple String String -> Eff (history :: History | e) Unit)
-                                       -> Eff (history :: History | e) Unit
+foreign import onState "" :: forall e. (Tuple String String -> Eff (urlHistory :: UrlHistory | e) Unit)
+                                       -> Eff (urlHistory :: UrlHistory | e) Unit
