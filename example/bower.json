@@ -1,0 +1,21 @@
+{
+  "name": "purescript-web-dev-example",
+  "version": "0.0.0",
+  "authors": [
+    "Curtis Gagliardi <curtis@curtis.io>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "purescript-random": "*",
+    "purescript-tuples": "*",
+    "history.js": "*",
+    "purescript-history": "glutamate/purescript-history"
+  }
+}
