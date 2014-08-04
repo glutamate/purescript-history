@@ -1,4 +1,4 @@
-module History
+module UrlHistory
  ( UrlHistory()
  , pushState
  ) where
